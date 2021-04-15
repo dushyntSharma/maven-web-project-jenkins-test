@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajax</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<style>
+body {
+	display: inline-block;
+	margin-left: 20%;
+	margin-right: 25%;
+	width: 50%;
+}
+
+tr, td {
+	background-color: white;
+	padding: 10px;
+	text-align: left;
+}
+</style>
+</head>
+<body>
+	<form method="post">
+		<br> <br> News Topic :<input type="text" name="topic"
+			id="topic" /><br> <br> Description :<input type="text"
+			name="des" id="des" /><br> <br> Announced Date :<input
+			type="date" name="date" id="date" /><br> <br> <input
+			type="submit" value="submit" id="save_data" />
+	</form>
+	<script>
+		$(document).ready(function() {
+			$("#save_data").click(function() {
+				alert("News Updated!");
+				$.ajax({
+					url : "ajaxnews.jsp",
+					type : "post",
+					data : {
+						topic : $('#topic').val(),
+						des : $('#des').val(),
+						date : $('#date').val(),
+
+
+					}
+				});
+			});
+		});
+	</script>
+	<div>
+		<a href="adminHome.html">Back</a>
+	</div>
+</body>
+</html>
